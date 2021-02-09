@@ -87,20 +87,32 @@
 
             const depositNumber = getInputNumber("depositAmount");
 
-            updateSpanText("currentDeposit", depositNumber);
-            updateSpanText("currentBalance", depositNumber);
+            if (depositNumber < 0) {
+                alert("input valid value..!");
+            }
+
+            else {
+                updateSpanText("currentDeposit", depositNumber);
+                updateSpanText("currentBalance", depositNumber);
+            }
 
             document.getElementById("depositAmount").value = "";
+
         })
 
         // Withdraw button event handler
         const withdrawBtn = document.getElementById("addWithdraw");
         withdrawBtn.addEventListener("click", function () {
-            
+
             const withdrawNumber = getInputNumber("withdrawAmount");
 
-            updateSpanText("currentWithdraw", withdrawNumber);
-            updateSpanText("currentBalance", -1 * withdrawNumber);
+            if (withdrawNumber < 0) {
+                alert("input valid value..!");
+            }
+            else {
+                updateSpanText("currentWithdraw", withdrawNumber);
+                updateSpanText("currentBalance", -1 * withdrawNumber);
+            }
 
             document.getElementById("withdrawAmount").value = "";
         })
@@ -119,7 +131,8 @@
             const totalAmount = addNumber + currentNumber;
             document.getElementById(id).innerText = totalAmount;
         }
-        
+
     </script>
 </body>
+
 </html>
